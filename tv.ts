@@ -52,7 +52,8 @@ class Televisor {
         if (!this.isOn) return ; //no hace falta poner llave pues es una sola linea
         this.channel = channel;
         console.log("cambiaste al canal" , this.channel);
-        if (this.channel < 1 || this.channel > 99) {                       //me devuelve al canal 24
+        if (this.channel < 1 || this.channel > 99) { 
+            this.channel = 24;                      //me devuelve al canal 24
             console.log ("no channel");
         }
     }
