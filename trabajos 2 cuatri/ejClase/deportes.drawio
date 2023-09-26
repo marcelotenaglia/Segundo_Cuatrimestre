@@ -1,0 +1,55 @@
+<mxfile host="65bd71144e">
+    <diagram id="cgJ132BiLFV-TuHjRSvf" name="Page-1">
+        <mxGraphModel dx="888" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Deportista" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="160" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="#nombre : string&lt;br&gt;-edad : number&lt;br&gt;+deporte : string" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="200" width="160" height="71" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="entrenar () : void&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;descansar() : void&lt;/span&gt;&lt;/div&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="271" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Tenista" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="310" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="-manoHabil : string" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="recibirMedalla() : Medallero" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="80" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Basquetbolista" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="200" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="-altura : number" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="240" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="jugarPartido() : void" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="280" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Atleta" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="400" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="-disciplina : string" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="440" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="correr () : void" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="480" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Medallero" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="600" width="160" height="41" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="-puesto : string" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="41" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="entregarMedalla() : void" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="81" width="160" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
