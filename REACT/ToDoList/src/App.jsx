@@ -55,7 +55,7 @@ const handleDelete = (id) => {
         </thead>
         <tbody>
           {tarea.map((t) => (
-          <tr key={tarea.id}>
+          <tr className={tarea.isCompleted? "completed" : null} key={tarea.id}>
             <td>{tarea.id.substring(0,6)}</td>
             <td>{tarea.title}</td>
             <td className="status" onClick = {()=>{handleStatusChange(tarea.id)}}> {tarea.isCompleted ? "hecho" : "pending"}</td>
