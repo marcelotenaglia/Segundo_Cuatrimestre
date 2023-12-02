@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Formulario from './form';
-import {uuid as uuidv4} from "uuid";
+import Input from './form';
+import {v4 as uuidv4} from "uuid";
 import "./App.css";
+import { TbTrashOff } from "react-icons/tb";
 
 function App() {
 
   const [tarea, setTarea] = useState([])
-
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -16,34 +16,42 @@ function App() {
       isCompleted : false
     }
 
-    setTareas = ([
+    e.target.reset()
+
+    setTarea ([
       ...tarea,
       newTarea
     ])
 }
 
-handleStatusChange = (id) => {
-  const modifiedTareas = tarea.map(task => task.id === id ? {...todo, isCompleted : !task.isCompleted} : task)
+ const handleStatusChange = (id) => {
+
+  const modifiedTareas = tarea.map(task => 
+
+    task.id === id ? {...task, isCompleted : !task.isCompleted} : task)
 
   setTarea ([...modifiedTareas])
+
 }
 
-const handleDelete = (id) => {
-  const remainingTareas = tarea.filter (task => task.id !== id);
+  const handleDelete = (id) => {
+
+   const remainingTareas = tarea.filter (task => task.id !== id);
+
   setTarea ([...remainingTareas])
+
 }
 
 
   return (
-    <>
-    <div className='contenedorPrincipal'>
-
-      <h1>To Do List</h1>
     
-       
-      <Formulario onAddTask = {(submit) => {
-        handleAdd(submit.target.input.value)
-      }} />
+      <main className='container'>
+        <header>
+          <h1>To Do List</h1>
+        </header>
+      
+      <Input onAdd = {(submit) => handleAdd(submit) } />
+
       <table>
         <thead>
           <tr>
@@ -54,19 +62,34 @@ const handleDelete = (id) => {
           </tr>
         </thead>
         <tbody>
-          {tarea.map((t) => (
-          <tr className={tarea.isCompleted? "completed" : null} key={tarea.id}>
+
+          {tarea && tarea.map((tarea) => (
+
+          <tr key={tarea.id} className={tarea.isCompleted? "completed" : null}>
+
             <td>{tarea.id.substring(0,6)}</td>
+
             <td>{tarea.title}</td>
-            <td className="status" onClick = {()=>{handleStatusChange(tarea.id)}}> {tarea.isCompleted ? "hecho" : "pending"}</td>
-            <td><IoTrashOutline className="status" onClick={() => handleDelete()}/></td>
-          </tr>))
-          }
+
+            <td  onClick = { () => handleStatusChange(tarea.id) }> {tarea.isCompleted ? "hecho" : "pending"}</td>
+            
+            <td> <TbTrashOff color='tomato' size={18} className='status' 
+            
+            onClick={ () => handleDelete(tarea.id) }/>
+            
+            </td>
+
+          </tr>)
+          
+          )}
+
         </tbody>
+
       </table>
-      </div>
+
+      </main>
       
-    </>
+    
   )
 }
 
