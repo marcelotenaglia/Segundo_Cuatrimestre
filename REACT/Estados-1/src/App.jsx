@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 
 function App() {
   
   const [counter, setCounter] = useState(0);
+
+  useEffect (() => {
+    document.title = `hiciste ${counter} clicks`
+  }) 
 
   const addOneHandler = () => {
     setCounter(counter + 1);
