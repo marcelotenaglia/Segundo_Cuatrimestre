@@ -43,7 +43,7 @@ function App() {
   )*/
 
 
-  const [ancho, setAncho] = useState (0);
+  /*const [ancho, setAncho] = useState (0);
 
   const [alto, setAlto] = useState (0);
 
@@ -102,9 +102,12 @@ function App() {
       <p>Resultado: {area} cm cuadrados</p>
 
     </>
-  )
+  )*/
 
 /*(base*altura)/2*/ 
+
+  
+
 }
 
 export default App
