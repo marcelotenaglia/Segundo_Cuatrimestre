@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import Input from './form';
 import {v4 as uuidv4} from "uuid";
 import "./App.css";
-import { TbTrashOff } from "react-icons/tb";
 import { getItem } from './components/getItem';
+import { Tarea } from './components/tarea';
 
 function App() {
   
@@ -73,23 +73,11 @@ function App() {
         </thead>
         <tbody>
 
-          {tarea && tarea.map((tarea) => (
+          {tarea && tarea.map((tarea, handleStatusChange, handleDelete) => (
 
-          <tr key={tarea.id} className={tarea.isCompleted? "completed" : null}>
+            <Tarea tarea = {tarea} handleStatusChange = {handleStatusChange} handleDelete = {handleDelete}/>
 
-            <td>{tarea.id.substring(0,6)}</td>
-
-            <td>{tarea.title}</td>
-
-            <td  onClick = { () => handleStatusChange(tarea.id) }> {tarea.isCompleted ? "hecho" : "pending"}</td>
-            
-            <td> <TbTrashOff color='tomato' size={18} className='status' 
-            
-            onClick={ () => handleDelete(tarea.id) }/>
-            
-            </td>
-
-          </tr>)
+          )
           
           )}
 
