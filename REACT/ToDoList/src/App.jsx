@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Input from './form';
 import {v4 as uuidv4} from "uuid";
 import "./App.css";
 import { TbTrashOff } from "react-icons/tb";
+import { getItem } from './components/getItem';
 
 function App() {
+  
+  const [tarea, setTarea] = useState(() => getItem())
 
-  const [tarea, setTarea] = useState([])
+  useEffect (() => {
+
+     window.localStorage.setItem ("todo-list", JSON.stringify(tarea))
+
+  }, [tarea])
 
   const handleAdd = (e) => {
+    
     e.preventDefault();
+    if (e.target.input.value === "") return
     const newTarea = {
       id: uuidv4(),
       title: e.target.input.value,
@@ -22,6 +31,7 @@ function App() {
       ...tarea,
       newTarea
     ])
+
 }
 
  const handleStatusChange = (id) => {
