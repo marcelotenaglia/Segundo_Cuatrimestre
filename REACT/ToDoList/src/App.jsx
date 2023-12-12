@@ -3,9 +3,30 @@ import Input from './form';
 import {v4 as uuidv4} from "uuid";
 import "./App.css";
 import { getItem } from './components/getItem';
-import { Tarea } from './components/tarea';
+import { TbTrashOff } from "react-icons/tb";
+
+
+
 
 function App() {
+
+  const handleDelete = (id) => {
+
+    const remainingTareas = tarea.filter (task => task.id !== id);
+  
+   setTarea ([...remainingTareas])
+  
+  }
+  
+  const handleStatusChange = (id) => {
+  
+    const modifiedTareas = tarea.map(task => 
+  
+      task.id === id ? {...task, isCompleted : !task.isCompleted} : task)
+  
+    setTarea ([...modifiedTareas])
+  
+  }
   
   const [tarea, setTarea] = useState(() => getItem())
 
@@ -34,26 +55,8 @@ function App() {
 
 }
 
- const handleStatusChange = (id) => {
-
-  const modifiedTareas = tarea.map(task => 
-
-    task.id === id ? {...task, isCompleted : !task.isCompleted} : task)
-
-  setTarea ([...modifiedTareas])
-
-}
-
-  const handleDelete = (id) => {
-
-   const remainingTareas = tarea.filter (task => task.id !== id);
-
-  setTarea ([...remainingTareas])
-
-}
-
-
   return (
+    
     
       <main className='container'>
         <header>
@@ -73,9 +76,16 @@ function App() {
         </thead>
         <tbody>
 
-          {tarea && tarea.map((tarea, handleStatusChange, handleDelete) => (
+          {tarea && tarea.map((tarea) => (
 
-            <Tarea tarea = {tarea} handleStatusChange = {handleStatusChange} handleDelete = {handleDelete}/>
+            <tr key={tarea.id} className={tarea.isCompleted ? "completed" : null}>
+              <td> {tarea.id.substring (0,6) } </td>
+              <td> {tarea.title} </td>
+              <td className='status' onClick={() => handleStatusChange (tarea.id)}> {tarea.isCompleted ? "hecho" : "pendiente"} </td>
+              <td><TbTrashOff color="tomato" size={18} className="status"
+              onClick={() => handleDelete(tarea.id)}/>
+              </td>
+            </tr>
 
           )
           
@@ -86,7 +96,6 @@ function App() {
       </table>
 
       </main>
-      
     
   )
 }
