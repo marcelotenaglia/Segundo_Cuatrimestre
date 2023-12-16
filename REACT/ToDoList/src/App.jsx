@@ -4,7 +4,8 @@ import {v4 as uuidv4} from "uuid";
 import "./App.css";
 import { getItem } from './components/getItem';
 import { TbTrashOff } from "react-icons/tb";
-
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import Log from './components/Log';
 
 
 
@@ -57,11 +58,36 @@ function App() {
 
   return (
     
-    
-      <main className='container'>
-        <header>
-          <h1>To Do List</h1>
-        </header>
+    <main className='container'>
+
+
+
+<BrowserRouter>
+
+<header>
+
+  <nav>
+
+    <Link to="/"  > HOME </Link>
+
+    <Link to="/Log"> TAREAS REALIZADAS </Link> 
+
+  </nav>
+
+</header>
+
+<Routes>
+
+  <Route path='/' />
+
+  <Route path='/Log' element={ <Log/> } /> 
+
+</Routes>
+
+
+
+
+      <h1>To Do List</h1>
       
       <Input onAdd = {(submit) => handleAdd(submit) } />
 
@@ -93,11 +119,14 @@ function App() {
 
         </tbody>
 
-      </table>
+      </table>  
+
+      </BrowserRouter>
 
       </main>
     
   )
+
 }
 
 export default App

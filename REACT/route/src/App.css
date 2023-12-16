@@ -5,3 +5,18 @@
   text-align: center;
 }
 
+.nav {
+  display: flex;
+  text-align: center;
+}
+
+.navEl {
+  display: flex;
+  padding-left: 16px;
+  color: red;
+}
+
+body {
+  background-color: aqua;
+}
+
