@@ -11,6 +11,8 @@ import Log from './components/Log';
 
 function App() {
 
+  const [tarea, setTarea] = useState(() => getItem())
+
   const handleDelete = (id) => {
 
     const remainingTareas = tarea.filter (task => task.id !== id);
@@ -18,7 +20,7 @@ function App() {
    setTarea ([...remainingTareas])
   
   }
-  
+
   const handleStatusChange = (id) => {
   
     const modifiedTareas = tarea.map(task => 
@@ -26,16 +28,16 @@ function App() {
       task.id === id ? {...task, isCompleted : !task.isCompleted} : task)
   
     setTarea ([...modifiedTareas])
-  
+
   }
   
-  const [tarea, setTarea] = useState(() => getItem())
-
   useEffect (() => {
 
-     window.localStorage.setItem ("todo-list", JSON.stringify(tarea))
+    window.localStorage.setItem ("todo-list", JSON.stringify(tarea))
 
-  }, [tarea])
+ }, [tarea])
+
+  
 
   const handleAdd = (e) => {
     
@@ -80,7 +82,7 @@ function App() {
 
   <Route path='/' />
 
-  <Route path='/Log' element={ <Log/> } /> 
+  <Route path='/Log' element={<Log completedTareas={tarea.filter(task => task.isCompleted)} />} /> 
 
 </Routes>
 
@@ -90,6 +92,8 @@ function App() {
       <h1>To Do List</h1>
       
       <Input onAdd = {(submit) => handleAdd(submit) } />
+
+      
 
       <table>
         <thead>
@@ -129,4 +133,4 @@ function App() {
 
 }
 
-export default App
+export default App;

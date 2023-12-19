@@ -1,27 +1,16 @@
 import React from 'react';
 
-const completedTask = (id) => {
+function Log({ completedTareas }) {
 
-    const completedTasks = tarea.map(todo => 
-        
-        todo.id === id ? {...todo.push(), isCompleted : !todo.isCompleted} : todo)
-
-        setTodo ([...completedTasks])
-
-}
-
-function Log() {
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Tareas Realizadas: </th>
-                </tr>
-            </thead>
-
-            
-            
-        </table>
+        <div>
+            <h2>Tareas Realizadas</h2>
+            <ul>
+                {completedTareas.map((tarea) => (
+                    <li key={tarea.id}>{tarea.title}</li>
+                ))}
+            </ul>
+        </div>
     );
 }
 
