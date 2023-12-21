@@ -3,10 +3,9 @@ import Input from './form';
 import {v4 as uuidv4} from "uuid";
 import "./App.css";
 import { getItem } from './components/getItem';
-import { TbTrashOff } from "react-icons/tb";
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Log from './components/Log';
-
+import Tarea from './components/Tarea';
 
 
 function App() {
@@ -108,14 +107,7 @@ function App() {
 
           {tarea && tarea.map((tarea) => (
 
-            <tr key={tarea.id} className={tarea.isCompleted ? "completed" : null}>
-              <td> {tarea.id.substring (0,6) } </td>
-              <td> {tarea.title} </td>
-              <td className='status' onClick={() => handleStatusChange (tarea.id)}> {tarea.isCompleted ? "hecho" : "pendiente"} </td>
-              <td><TbTrashOff color="tomato" size={18} className="status"
-              onClick={() => handleDelete(tarea.id)}/>
-              </td>
-            </tr>
+            <Tarea tarea={tarea} handleDelete={handleDelete} handleStatusChange={handleStatusChange} /> 
 
           )
           
